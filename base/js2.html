@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>requestAnimationFrame | 老陈打码</title>
+    <meta name="description" content="帅气的老陈！">
+    <link rel="stylesheet" href="/vitepress/assets/style.106e1cbf.css">
+    <link rel="modulepreload" href="/vitepress/assets/Home.0bdbf291.js">
+    <link rel="modulepreload" href="/vitepress/assets/app.89f40e53.js">
+    <link rel="modulepreload" href="/vitepress/assets/base_js2.md.af09a26e.lean.js">
+    
+    <link rel="icon" href="/img/logo.png">
+  <meta name="twitter:title" content="requestAnimationFrame | 老陈打码">
+  <meta property="og:title" content="requestAnimationFrame | 老陈打码">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-675d8756><div class="sidebar-button" data-v-675d8756><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/vitepress/" aria-label="老陈打码, back to home" data-v-675d8756 data-v-cc01ef16><!----> 老陈打码</a><div class="flex-grow" data-v-675d8756></div><div class="nav" data-v-675d8756><nav class="nav-links" data-v-675d8756 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/vitepress/" data-v-b8818f8c>首页 <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/vitepress/about/" data-v-b8818f8c>关于 <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/vitepress/laochen.html" data-v-b8818f8c>关于老陈 <!----></a></div></div><!--]--><!----><!----></nav></div><!--[--><!--]--></header><aside class="sidebar" data-v-83e92a68><nav class="nav-links nav" data-v-83e92a68 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/vitepress/" data-v-b8818f8c>首页 <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/vitepress/about/" data-v-b8818f8c>关于 <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/vitepress/laochen.html" data-v-b8818f8c>关于老陈 <!----></a></div></div><!--]--><!----><!----></nav><!--[--><!--]--><ul class="sidebar-links" data-v-83e92a68><!--[--><li class="sidebar-link"><a class="sidebar-link-item" href="/vitepress/base/">前端基础</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/vitepress/">Vue</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/vitepress/base/js1">JavaScript</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item active" href="/vitepress/base/js2">RAF</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#简介">简介</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#浏览器兼容性">浏览器兼容性</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#作用及用法">作用及用法</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#详细用法">详细用法</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#实际使用示例">实际使用示例</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="#requestanimationframe的优点">requestAnimationFrame的优点</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#为什么不使用settimeout，setinterval？">为什么不使用settimeout，setinterval？</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#requestanimationframe的好处">requestAnimationFrame的好处</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="#兼容问题">兼容问题</a><!----></li></ul></li><!--]--></ul><!--[--><!--]--></aside><div class="sidebar-mask"></div><main class="page" data-v-7eddb2c4><div class="container" data-v-7eddb2c4><!--[--><!--]--><div style="position:relative;" class="content" data-v-7eddb2c4><div><h1 id="requestanimationframe" tabindex="-1">requestAnimationFrame <a class="header-anchor" href="#requestanimationframe" aria-hidden="true">#</a></h1><h2 id="简介" tabindex="-1">简介 <a class="header-anchor" href="#简介" aria-hidden="true">#</a></h2><p>rAF是requestAnimationFrame的简称；</p><p>我们先从字面意思上理解<code>requestAnimationFrame</code>，<strong>「request - 请求」</strong>，<strong>「Animation - 动画」</strong>， <strong>「Frame - 帧率;框架」</strong>，<code>rAF</code>难道是JS的动画框架???，结果显而易见并不是。但确实<code>rAF</code>和动画有关系</p><p>我们先来看一下MDN官网对的<code>requestAnimationFrame</code>解释:</p><blockquote><p>window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行</p></blockquote><h2 id="浏览器兼容性" tabindex="-1">浏览器兼容性 <a class="header-anchor" href="#浏览器兼容性" aria-hidden="true">#</a></h2><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df21d1327c7448b6b9e5a57fd1f20095~tplv-k3u1fbpfcp-zoom-1.image" alt="img"></p><p><code>requestAnimationFrame</code>兼容IE10及以上，这时候有人会有疑问，怎么才到IE10啊，但其实我们最常使用的CSS3 <code>animation</code>属性也是IE10之后才有的，在IE9之前想要实现动画基本使用的是<code>setTimeout/setInterval</code>实现</p><h2 id="作用及用法" tabindex="-1">作用及用法 <a class="header-anchor" href="#作用及用法" aria-hidden="true">#</a></h2><p><code>requestAnimationFrame</code>简称<code>rAF</code>,它是浏览器全局对象window的一个方法。</p><p>相比于<code>setTimeout</code>的在固定时间后执行对应的动画函数，rAF用于指示浏览器在下一次重新绘制屏幕图像时, 执行其提供的回调函数。</p><p>这也是<code>rAF</code>的最大优势–它能够保证我们的动画函数的每一次调用都对应着一次屏幕重绘，从而避免<code>setTimeout</code>通过时间定义动画频率，与屏幕刷新频率不一致导致的丢帧。</p><h3 id="详细用法" tabindex="-1">详细用法 <a class="header-anchor" href="#详细用法" aria-hidden="true">#</a></h3><p><code>requestAnimationFrame</code>语法如下:</p><div class="language-"><pre><code>window.requestAnimationFrame(callback)
+
+复制代码
+</code></pre></div><p><strong>「参数；callback」</strong> 下一次重绘之前更新动画帧所调用的函数(即上面所说的回调函数)。该回调函数会被传入<code>DOMHighResTimeStamp</code>参数，该参数与<code>performance.now()</code>的返回值相同，它表示<code>requestAnimationFrame()</code>开始去执行回调函数的时刻。</p><p>**「返回值」**一个 long 整数，请求 ID ，是回调列表中唯一的标识。是个非零值，没别的意义。你可以传这个值给 window.cancelAnimationFrame() 以取消回调函数。</p><blockquote><p>DOMHighResTimeStamp 指的是一个double类型，用于存储毫秒级的时间值。这种类型可以用来描述离散的时间点或者一段时间（两个离散时间点之间的时间差）。</p></blockquote><blockquote><p>performance.now()方法返回一个精确到毫秒的DOMHighResTimeStamp 。</p></blockquote><hr><p>它的实际常见用法类似于<code>setTimeout</code>，只是不需要设置时间间隔而已。如下:</p><div class="language-"><pre><code>const element = document.getElementById(&#39;some-element-you-want-to-animate&#39;); 
+let start;
+
+function step(timestamp) {
+  // timestamp回调函数传入的`DOMHighResTimeStamp`参数，也就是存储毫秒级的时间值
+  if (start === undefined)
+    start = timestamp;
+  const elapsed = timestamp - start;
+
+  //这里使用`Math.min()`确保元素刚好停在200px的位置。
+  element.style.transform = &#39;translateX(&#39; + Math.min(0.1 * elapsed, 200) + &#39;px)&#39;;
+
+  if (elapsed &lt; 2000) { // 在两秒后停止动画
+    window.requestAnimationFrame(step);
+  }
+}
+
+window.requestAnimationFrame(step);
+
+复制代码
+</code></pre></div><p>上述代码的作用在每一次屏幕显示图像的更新中，都将元素向左移动1px，停在200px位置上。</p><h3 id="实际使用示例" tabindex="-1">实际使用示例 <a class="header-anchor" href="#实际使用示例" aria-hidden="true">#</a></h3><p><strong>「上才艺，E G M,E G M E G M E G M」</strong></p><p>我们以在3000毫秒内移动1500px距离的动画为例</p><h4 id="settimeout的实现方式" tabindex="-1">setTimeout的实现方式 <a class="header-anchor" href="#settimeout的实现方式" aria-hidden="true">#</a></h4><p>以下代码通过setTimeout每10毫秒为间隔时间改变一次元素的位置以实现元素的动画效果， 当然，可以通过改变这个间隔时间来微调动画效果，可是你永远没有办法确定最优方案，因为它总会和刷新频率存在交叉。</p><div class="language-"><pre><code>&lt;div id=&quot;div&quot; style=&quot;width:100px; height:100px; background-color:#000; position: absolute;left:0; top:0;&quot;&gt;
+    
+&lt;/div&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+let divEle = document.getElementById(&quot;div&quot;);
+
+const distance = 1500; // 需要移动的距离
+const timeCount = 3000; // 需要使用的时间
+
+const intervalTime = 10; // 设置间隔时间为10ms
+let runCount = timeCount / intervalTime; // 相除得到运行次数
+let moveValue = distance / runCount; // 每次运行移动的距离
+
+function handler() {
+    let left = parseInt(divEle.style.left);
+    if(left &gt;= distance) {
+      // 当距离左侧的距离超出需要移动的距离停止
+        return;
+    }
+    divEle.style.left = left + moveValue;
+    window.setTimeout(handler, intervalTime);
+}
+
+window.setTimeout(handler, intervalTime);
+&lt;/script&gt;
+
+复制代码
+</code></pre></div><h4 id="requestanimationframe的实现方式" tabindex="-1">requestAnimationFrame的实现方式 <a class="header-anchor" href="#requestanimationframe的实现方式" aria-hidden="true">#</a></h4><p><strong>「从setTimeout切换到 requestAnimationFrame很容易，因为它们都安排了一个回调。对于连续动画，在调用动画函数之后再次调用requestAnimationFrame。」</strong></p><p>request 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成（这点很像虚拟DOM不是~），并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率,这样就不会出现过度渲染的问题，保证了流畅的需求以及浏览器的完美渲染。</p><div class="language-"><pre><code>&lt;div id=&quot;div&quot; style=&quot;width:100px; height:100px; background-color:#000; position: absolute;left:0; top:0;&quot;&gt;
+    
+&lt;/div&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+let divEle = document.getElementById(&quot;div&quot;);
+
+const distance = 1500; // 需要移动的距离
+const timeCount = 3000; // 需要使用的时间
+
+function handler( time ) {
+    // time为rAF返回的毫秒级时间单位，当time的大于timeCount的值则停止
+    // time理论上是从 1 开始到timeCount定义的3000，
+    if(time &gt; timeCount) {
+        time = timeCount;
+    }
+    // 这句代码的作用是 time理论上是从 1 至 3000
+    // 当到达3000的时候，time * distance / timeCount得到的一定是distance的值1500
+    divEle.style.left = time * distance / timeCount;
+    window.requestAnimationFrame( handler ); // 循环调用，渲染完成会停止
+}
+
+ window.requestAnimationFrame( handler );
+&lt;/script&gt;
+    
+
+复制代码
+</code></pre></div><h2 id="requestanimationframe的优点" tabindex="-1">requestAnimationFrame的优点 <a class="header-anchor" href="#requestanimationframe的优点" aria-hidden="true">#</a></h2><h3 id="为什么不使用settimeout，setinterval？" tabindex="-1">为什么不使用settimeout，setinterval？ <a class="header-anchor" href="#为什么不使用settimeout，setinterval？" aria-hidden="true">#</a></h3><p>setTimeout通过设定一个时间间隔来不断的更新屏幕图像，从而完成动图。 它的优点是可控性高，可以进行编码式的动画效果实现。</p><p>setTimeout缺点：</p><ol><li><strong>「造成无用的函数运行开销：」</strong></li></ol><p>也就是过度绘制，同时因为更新图像的频率和屏幕的刷新重绘制步调不一致，会产生丢帧，在低性能的显示器动画看起来就会卡顿。</p><ol><li><strong>「当网页标签或浏览器置于后台不可见时，仍然会执行，造成资源浪费」</strong></li><li><strong>「API本身达不到毫秒级的精确：」</strong></li></ol><p>如果使用 setTimeout或者setInterval 那么需要我们制定时间 假设给予 （1000/60）理论上就可以完成60帧速率的动画。所以事实是浏览器可以“强制规定时间间隔的下限（clamping th timeout interval）”,一般浏览器所允许的时间再5-10毫秒，也就是说即使你给了某个小于10的数，可能也要等待10毫秒。</p><ol><li><strong>「浏览器不能完美执行：」</strong></li></ol><p>当动画使用10ms的settimeout绘制动画时，您将看到一个时序不匹配，如下所示。</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c186eeb339b240dd96053c2ccaf2a49e~tplv-k3u1fbpfcp-zoom-1.image" alt="img"></p><p>我们的显示屏一般是**「16.7ms（即60FPS）的显示频率」<strong>，上图的第一行代表大多数监视器上显示的</strong>「16.7ms显示频率」<strong>，上图的第二行代表</strong>「10ms的典型setTimeout」<strong>。由于在显示刷新间隔之前发生了另一个绘制请求，因此无法绘制每次的第三个绘制（红色箭头指示）。这种透支会导致动画断断续续，</strong>「因为每三帧都会丢失」**。计时器分辨率的降低也会对电池寿命产生负面影响，并降低其他应用程序的性能。</p><blockquote><p>如果使用requestAnimationFrame可以解决setTimeout的丢帧问题，因为它使应用程序时通知（且仅当）的浏览器需要更新页面显示，渲染时间由系统处理。因此，应用程序与浏览器绘画间隔完全一致，并且仅使用适当数量的资源。</p></blockquote><h3 id="requestanimationframe的好处" tabindex="-1">requestAnimationFrame的好处 <a class="header-anchor" href="#requestanimationframe的好处" aria-hidden="true">#</a></h3><p>相比于<code>setTimeout</code>的在固定时间后执行对应的动画函数，<code>requestAnimationFrame</code>用于指示浏览器在下一次重新绘制屏幕图像时, 执行其提供的回调函数。</p><ul><li>**「使浏览器画面的重绘和回流与显示器的刷新频率同步」**它能够保证我们的动画函数的每一次调用都对应着一次屏幕重绘，从而避免<code>setTimeout</code>通过时间定义动画频率，与屏幕刷新频率不一致导致的丢帧。</li><li>**「节省系统资源，提高性能和视觉效果」**在页面被置于后台或隐藏时，会自动的停止，不进行函数的执行，当页面激活时，会重新从上次停止的状态开始执行，因此在性能开销上也会相比<code>setTimeout</code>小很多。</li></ul><h2 id="兼容问题" tabindex="-1">兼容问题 <a class="header-anchor" href="#兼容问题" aria-hidden="true">#</a></h2><p>目前的时间点上，几乎所有的浏览器现行版本都支持了requestAnimationFrame函数。但在一部分浏览器上还需要加上兼容性前缀。 下面这是比较全面的方法用来使requestAnimation兼容各浏览器:</p><div class="language-"><pre><code>(function() {
+    var lastTime = 0;
+    var vendors = [&#39;webkit&#39;, &#39;moz&#39;]; // 浏览器前缀
+    // 当window.requestAnimationFrame不存在时执行for循环，添加前缀
+    for(var x = 0; x &lt; vendors.length &amp;&amp; !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x] + &#39;RequestAnimationFrame&#39;];
+        window.cancelAnimationFrame = window[vendors[x] + &#39;CancelAnimationFrame&#39;] ||
+                                      window[vendors[x] + &#39;CancelRequestAnimationFrame&#39;];
+    }
+
+    //当添加前缀后依旧不存在，则使用setTimeout替代
+    if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
+            var id = window.setTimeout(function() {
+                callback(currTime + timeToCall);
+            }, timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+    }
+    if (!window.cancelAnimationFrame) {
+        window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+        };
+    }
+}());
+
+
+</code></pre></div><p>然后，我们就可以以使用setTimeout的感觉使用requestAnimationFrame方法制作动画啦！</p></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-fb8d84c6><div class="edit" data-v-fb8d84c6><div class="edit-link" data-v-fb8d84c6 data-v-1ed99556><!----></div></div><div class="updated" data-v-fb8d84c6><!----></div></footer><div class="next-and-prev-link" data-v-7eddb2c4 data-v-38ede35f><div class="container" data-v-38ede35f><div class="prev" data-v-38ede35f><a class="link" href="/vitepress/base/js1" data-v-38ede35f><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-prev" data-v-38ede35f><path d="M19,11H7.4l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-7,7c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.2-0.1,0.5,0,0.8c0.1,0.1,0.1,0.2,0.2,0.3l7,7c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L7.4,13H19c0.6,0,1-0.4,1-1S19.6,11,19,11z"></path></svg><span class="text" data-v-38ede35f>JavaScript</span></a></div><div class="next" data-v-38ede35f><!----></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"base_index.md\":\"25db0774\",\"base_js1.md\":\"57660fc5\",\"base_js2.md\":\"af09a26e\",\"index.md\":\"0ac7c79f\"}")</script>
+    <script type="module" async src="/vitepress/assets/app.89f40e53.js"></script>
+    
+  </body>
+</html>
